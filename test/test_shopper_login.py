@@ -99,7 +99,7 @@ def test_shopper_login_rate_limiting():
             }
     for i in range(5): # Simulate multiple invalid login attempts
         response = session.post(url, json=payload)
-        assert response.status_code in [200,400],f"expected 400 but got it {response.status_code}"
+        assert response.status_code in [200],f"expected 400 but got it {response.status_code}"
     session.close()
     # Check if rate limiting or account lockout occurs
     response = session.post(url, json=payload)
